@@ -3,23 +3,19 @@ import time
 from PIL import ImageFont, ImageDraw, Image
 import numpy as np
 
-# === Загрузка каскадов Хаара ===
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye.xml')
 smile_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_smile.xml')
 
-# === Видеопоток ===
 cap = cv2.VideoCapture(0)
 
 prev_time = 0
-fps_values = []  # список для хранения всех FPS
+fps_values = []
 
-# === Настройка шрифта (путь к .ttf файлу) ===
-font_path = "C:/Windows/Fonts/arial.ttf"  # Windows
+font_path = "C:/Windows/Fonts/arial.ttf"
 font = ImageFont.truetype(font_path, 28)
 
 def draw_text_pil(img, text, position, font, color=(255, 255, 0)):
-    """Функция для рисования текста с поддержкой кириллицы."""
     img_pil = Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
     draw = ImageDraw.Draw(img_pil)
     draw.text(position, text, font=font, fill=color)
@@ -31,7 +27,6 @@ while True:
         print("Не удалось получить изображение с камеры")
         break
 
-    # === Расчёт FPS ===
     current_time = time.time()
     time_diff = current_time - prev_time
     fps = 1 / time_diff if time_diff > 0 else 0
@@ -55,7 +50,6 @@ while True:
         for (sx, sy, sw, sh) in smiles:
             cv2.rectangle(roi_color, (sx, sy), (sx + sw, sy + sh), (0, 255, 255), 2)
 
-        # === Проверка состояний ===
         if len(eyes) < 2:
             message = "Открой глаза"
         elif len(smiles) == 0:
@@ -63,21 +57,17 @@ while True:
         else:
             message = "Отлично!"
 
-    # === Отображение FPS ===
     cv2.putText(frame, f"FPS: {fps:.2f}", (10, 25),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
 
-    # === Сообщение пользователю ===
     if message:
         frame = draw_text_pil(frame, message, (50, 60), font, color=(0, 255, 255))
 
     cv2.imshow('Распознавание лица', frame)
 
-    # ESC — выход
     if cv2.waitKey(1) == 27:
         break
 
-# === Расчёт среднего FPS после выхода ===
 if fps_values:
     avg_fps = sum(fps_values) / len(fps_values)
     print(f"Среднее значение FPS за время работы: {avg_fps:.2f}")
