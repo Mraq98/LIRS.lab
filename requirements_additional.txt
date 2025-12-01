@@ -1,6 +1,0 @@
-matplotlib
-Pillow
-torch
-torchvision
-opencv-python
-transformers
