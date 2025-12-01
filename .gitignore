@@ -6,3 +6,23 @@ ENV/
 .idea/
 
 __pycache__/
+
+# Depth-Anything-V2 specific
+Depth-Anything-V2/checkpoints/
+Depth-Anything-V2/__pycache__/
+Depth-Anything-V2/*.pth
+Depth-Anything-V2/*.pt
+Depth-Anything-V2/.git/
+Depth-Anything-V2/.github/
+
+# Model files
+*.pth
+*.pt
+*.bin
+*.safetensors
+
+# Training data and logs
+Depth-Anything-V2/logs/
+Depth-Anything-V2/runs/
+Depth-Anything-V2/outputs/
+Depth-Anything-V2/results/
