@@ -26,3 +26,20 @@ Depth-Anything-V2/logs/
 Depth-Anything-V2/runs/
 Depth-Anything-V2/outputs/
 Depth-Anything-V2/results/
+
+# Large data files
+*.zip
+*.tar
+*.gz
+*.pkl
+*.pickle
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python
+*.pyc
+*.pyo
+*.pyd
+.Python
