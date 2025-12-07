@@ -1,45 +1,85 @@
+\# ==== Virtual Environments ====
 venv/
 .venv/
 env/
 ENV/
 
+# ==== IDE / Editors ====
 .idea/
+.vscode/
+*.code-workspace
 
+# ==== Python cache ====
 __pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.eggs/
 
-# Depth-Anything-V2 specific
+# ==== Jupyter ====
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ==== Logs ====
+*.log
+logs/
+runs/
+wandb/
+
+# ==== Checkpoints / Weights ====
+*.pth
+*.pt
+*.ckpt
+*.bin
+*.safetensors
+
+# ==== Depth-Anything-V2 ====
 Depth-Anything-V2/checkpoints/
 Depth-Anything-V2/__pycache__/
 Depth-Anything-V2/*.pth
 Depth-Anything-V2/*.pt
 Depth-Anything-V2/.git/
 Depth-Anything-V2/.github/
-
-# Model files
-*.pth
-*.pt
-*.bin
-*.safetensors
-
-# Training data and logs
 Depth-Anything-V2/logs/
 Depth-Anything-V2/runs/
 Depth-Anything-V2/outputs/
 Depth-Anything-V2/results/
 
-# Large data files
+# ==== YOLO ====
+YOLO/runs/
+YOLO/weights/
+YOLO/output/
+YOLO/datasets/
+YOLO/*.cache
+
+# ==== Dataset files ====
+datasets/
+data/
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.tif
+*.tiff
+*.mp4
+*.avi
+*.mov
+
+# ==== Large archives ====
 *.zip
 *.tar
 *.gz
+*.rar
+*.7z
 *.pkl
 *.pickle
 
-# OS files
+# ==== OS / System ====
 .DS_Store
 Thumbs.db
 
-# Python
-*.pyc
-*.pyo
-*.pyd
-.Python
+# ==== Temporary ====
+tmp/
+temp/
