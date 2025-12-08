@@ -63,7 +63,6 @@ data/
 *.bmp
 *.tif
 *.tiff
-*.mp4
 *.avi
 *.mov
 
