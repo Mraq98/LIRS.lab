@@ -37,6 +37,6 @@ def create_binary_classification_dataset(source_folder, output_folder, val_ratio
 
 
 create_binary_classification_dataset(
-    "hand_dataset",  # <-- твоя папка
-    "cls_dataset"  # <-- выходная папка
+    "hand_dataset",
+    "cls_dataset"
 )
